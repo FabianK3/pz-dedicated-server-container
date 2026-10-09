@@ -99,3 +99,5 @@ For more detailed information, look at the `Makefile` and `compose.yml`.
 The entrypoint script for the container follows the concept similar to a guide posted on the [PZ forum](https://theindiestone.com/forums/topic/63563-4178-multiplayer-zomboid-dedicated-server-does-not-handle-sigterm/#comment-376957). This approach is considered not recommended as of october 2026. See caution note at start.
 
 **All rights for components used in this project go to their respective owner.**  
+
+For information on how to administrate the Project Zomboid server itself, see the official wiki.
