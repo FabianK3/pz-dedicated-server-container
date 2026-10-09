@@ -73,7 +73,7 @@ Most if not everything can be configured ingame using an admin account.
 
 ### Compose configuration
 
-Edit `compose.yaml` before starting the container:
+Edit `compose.yml` before starting the container:
 
 | Setting | Compose value | Behavior |
 | --- | --- | --- |
