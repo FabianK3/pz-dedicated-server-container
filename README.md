@@ -71,7 +71,7 @@ docker exec -it pzserver ./add-player-admin.sh
 From here on all configuration can be found in the `./volumes/data:/home/ubuntu/Zomboid` volume.  
 Most if not everything can be configured ingame using an admin account.
 
-## Compose configuration
+### Compose configuration
 
 Edit `compose.yaml` before starting the container:
 
@@ -83,12 +83,12 @@ Edit `compose.yaml` before starting the container:
 
 The image defaults `AUTO_UPDATE_MODS` to `false` and `AUTO_RESTART_HOURS` to empty. Both Compose settings are optional: remove `AUTO_UPDATE_MODS` to disable workshop checks, or remove `AUTO_RESTART_HOURS` to disable scheduled restarts. Setting them explicitly to `"false"` or `""` also works.
 
-## Update
+### Update
 
 To update the PZ server itself, you need to rebuild and redeploy the project. `make build; make export`.  
 Remove the old container image and start with the new one.
 
-### More
+## More
 
 For more detailed information, look at the `Makefile` and `compose.yml`.  
 The entrypoint script for the container follows the concept similar to a guide posted on the [PZ forum](https://theindiestone.com/forums/topic/63563-4178-multiplayer-zomboid-dedicated-server-does-not-handle-sigterm/#comment-376957). This approach is considered not recommended as of october 2026. See caution note at start.
