@@ -1,0 +1,6 @@
+# Testing containers mounts
+/volumes/
+# Image export file
+/pzserver.tar
+# Local configs used for deployment
+/config/

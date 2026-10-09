@@ -1,0 +1,30 @@
+services:
+  pzserver:
+    image: pzserver
+    container_name: pzserver
+    restart: unless-stopped
+    stop_grace_period: 120s # This is required for a safe shutdown
+    environment:
+      MAX_RAM_ALLOC_GB: 8 # Max amount of RAM allocated to the server (in GB), minimum is 2. Defaults to 8.
+      AUTO_UPDATE_MODS: "true" # Set to "false" to disable automatic workshop checks and restarts. Defaults to "true".
+      AUTO_RESTART_HOURS: "24" # Auto restart after X hours. Set to an empty value ("") to disable. Defaults to "24".
+    ports:
+      - "16261:16261/udp"
+      - "16262:16262/udp"
+    # Ensure all mounts are writable by the container's ubuntu user's UID/GID (1000:1000).
+    volumes:
+      - ./volumes/data:/home/ubuntu/Zomboid # Config, world, server data
+      - ./volumes/mods:/opt/pzserver/steamapps/workshop # Mod cache - Do not re-use this dir for multiple servers
+
+# If you run the server for the first time / world creation you need to set the password for the server,
+# check the container logs during first run to see if the server is awaiting the password input,
+# then set the password using: docker exec -it pzserver ./set-admin-password.sh
+# This needs to be done whether or not the admin user will be used.
+
+# To make a (at least once connected!) player an admin,
+# run: docker exec -it pzserver ./add-player-admin.sh
+
+# If you need to run any other arbitrary commands on the server, do:
+# docker exec -it pzserver /bin/sh
+# then in the cli do:
+# echo my command with arg "test" > /opt/pzserver/zomboid.control
