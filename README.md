@@ -14,6 +14,7 @@ This project contains the build and configuration for running a Project Zomboid 
 2. `make build`
 3. Check the `compose.yml` and adjust if needed. Make sure the volume binds exists and a write-able.
 4. `docker compose up`
+5. Log into server and update settings/sandbox | Update server.ini/server_SandboxVars.lua and restart the server.
 
 ## Requirements
 
@@ -70,6 +71,10 @@ docker exec -it pzserver ./add-player-admin.sh
 
 From here on all configuration can be found in the `./volumes/data:/home/ubuntu/Zomboid` volume.  
 Most if not everything can be configured ingame using an admin account.
+
+During the first boot the server generates all needed files in the volume(s).  
+You can either log into the server and configure it using the ingame UIs or change the configuration under `data/Server/*`.  
+If you change world generation settings, you naturally need to delete the world and restart the server.
 
 ### Compose configuration
 
