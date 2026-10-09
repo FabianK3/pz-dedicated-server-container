@@ -93,6 +93,13 @@ The image defaults `AUTO_UPDATE_MODS` to `false` and `AUTO_RESTART_HOURS` to emp
 To update the PZ server itself, you need to rebuild and redeploy the project. `make build; make export`.  
 Remove the old container image and start with the new one.
 
+### Server-side commands
+
+If you need to run any other arbitrary commands on the server, do:  
+`docker exec -it pzserver /bin/sh`  
+then in the shell do:  
+`echo 'servermsg "This is a test message"' > /opt/pzserver/zomboid.control`
+
 ## More
 
 For more detailed information, look at the `Makefile` and `compose.yml`.  

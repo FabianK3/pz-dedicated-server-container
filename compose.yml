@@ -26,5 +26,5 @@ services:
 
 # If you need to run any other arbitrary commands on the server, do:
 # docker exec -it pzserver /bin/sh
-# then in the cli do:
-# echo my command with arg "test" > /opt/pzserver/zomboid.control
+# then in the shell do:
+# echo 'servermsg "This is a test message"' > /opt/pzserver/zomboid.control
