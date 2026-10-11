@@ -90,7 +90,7 @@ auto_restart() {
 monitor_output() {
 	local line update_pending=0
 	while IFS= read -r line; do
-		if [[ ${AUTO_UPDATE_MODS:-false} == true && $update_pending -eq 0 && $line == *'CheckModsNeedUpdate: Mods need update.'* ]]; then
+		if [[ ${AUTO_UPDATE_MODS:-false} == true && $update_pending -eq 0 && $line == *'CheckModsNeedUpdate: Mods need update'* ]]; then
 			update_pending=1
 			kill "$workshop_update_pid" 2>/dev/null || :
 			kill "$auto_restart_pid" 2>/dev/null || :
